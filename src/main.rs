@@ -151,19 +151,14 @@ fn main() {
         println!("Remote thread created successfully.");
     }
 
-    let x: WAIT_EVENT = unsafe {
+    let _: WAIT_EVENT = unsafe {
         WaitForSingleObject(
             h,
             INFINITE
         )
     };
 
-    if x == WAIT_FAILED {
-        println!("Failed to wait for single object. Error: {:?}", unsafe { GetLastError() });
-        std::process::exit(-1);
-    } else {
-        println!("Remote thread executed successfully.");
-    }
+    
 
 
     unsafe {
